@@ -1,0 +1,39 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "string[]",
+                "name": "initialStudents",
+                "type": "string[]"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string[]",
+                "name": "students",
+                "type": "string[]"
+            }
+        ],
+        "name": "voteStudents",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getMostPopularStudent",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
