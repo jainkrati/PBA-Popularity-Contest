@@ -5,7 +5,7 @@ import PBA7ABI from "../../abis/PBA7.json";
 
 export const CONTRACT_ADDRESS = "0x58053f0e8ede1a47a1af53e43368cd04ddcaf66f";
 export const POPULARITY_CONTRACT_ADDRESS =
-  "0xA824c4e9Ed3F35C934eE15Aa9088dc9546806e5f";
+  "0xb7c36e02a4c702a723b7ef0c7011f4db60caa7ae";
 
 export const CONTRACT_ABI = StorageABI;
 export const POPULARITY_CONTRACT_ABI = PBA7ABI;

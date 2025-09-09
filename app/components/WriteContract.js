@@ -5,9 +5,20 @@ import { getSignedPopularityContract } from "../utils/contract";
 import { ethers } from "ethers";
 
 const WriteContract = ({ account }) => {
+  const options = ["A", "B", "C", "D"];
   const [students, setStudents] = useState([]);
   const [status, setStatus] = useState({ type: null, message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  function toggleStudent(name) {
+    const oldStudents = students;
+    setStudents(
+      (oldStudents) =>
+        oldStudents.includes(name)
+          ? oldStudents.filter((s) => s !== name) // remove if already selected
+          : [...oldStudents, name] // add if not selected
+    );
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,7 +63,6 @@ const WriteContract = ({ account }) => {
         type: "success",
         message: `Transaction confirmed! Transaction hash: ${receipt.hash}`,
       });
-      setStudents(null);
     } catch (err) {
       console.error("Error updating students:", err);
 
@@ -85,14 +95,20 @@ const WriteContract = ({ account }) => {
         </div>
       )}
       <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="Student List"
-          value={students}
-          onChange={(e) => setStudents(e.target.value)}
-          disabled={isSubmitting || !account}
-          className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
-        />
+        <div className="space-y-2 mb-4">
+          {options.map((name) => (
+            <label key={name} className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                value={name}
+                checked={Array.isArray(students) && students.includes(name)}
+                onChange={() => toggleStudent(name)}
+              />
+              <span>{name}</span>
+            </label>
+          ))}
+        </div>
+
         <button
           type="submit"
           disabled={isSubmitting || !account}

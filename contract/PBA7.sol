@@ -20,6 +20,14 @@ contract PBA7 {
      }
     }
 
+    function reset() public {
+        uint nameLength = names.length;
+        for(uint i=0; i<nameLength; i++){
+            string memory name = names[i];
+            popularityMap[name] = 0;
+     }
+    }
+
     function voteStudents(string[] memory students) public {
         uint studentLength = students.length;
         for(uint i=0; i<studentLength; i++){
