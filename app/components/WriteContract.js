@@ -5,20 +5,9 @@ import { getSignedPopularityContract } from "../utils/contract";
 import { ethers } from "ethers";
 
 const WriteContract = ({ account }) => {
-  const options = ["A", "B", "C", "D"];
   const [students, setStudents] = useState([]);
   const [status, setStatus] = useState({ type: null, message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  function toggleStudent(name) {
-    const oldStudents = students;
-    setStudents(
-      (oldStudents) =>
-        oldStudents.includes(name)
-          ? oldStudents.filter((s) => s !== name) // remove if already selected
-          : [...oldStudents, name] // add if not selected
-    );
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,6 +52,7 @@ const WriteContract = ({ account }) => {
         type: "success",
         message: `Transaction confirmed! Transaction hash: ${receipt.hash}`,
       });
+      setStudents(null);
     } catch (err) {
       console.error("Error updating students:", err);
 
@@ -82,7 +72,7 @@ const WriteContract = ({ account }) => {
 
   return (
     <div className="border border-pink-500 rounded-lg p-4 shadow-md bg-white text-pink-500 max-w-sm mx-auto space-y-4">
-      <h2 className="text-lg font-bold">Vote your favorite students</h2>
+      <h2 className="text-lg font-bold">Vote your favorite student</h2>
       {status.message && (
         <div
           className={`p-2 rounded-md break-words h-fit text-sm ${
@@ -95,20 +85,14 @@ const WriteContract = ({ account }) => {
         </div>
       )}
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="space-y-2 mb-4">
-          {options.map((name) => (
-            <label key={name} className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                value={name}
-                checked={Array.isArray(students) && students.includes(name)}
-                onChange={() => toggleStudent(name)}
-              />
-              <span>{name}</span>
-            </label>
-          ))}
-        </div>
-
+        <input
+          type="text"
+          placeholder="Student Name"
+          value={students}
+          onChange={(e) => setStudents([e.target.value.toString()])}
+          disabled={isSubmitting || !account}
+          className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
+        />
         <button
           type="submit"
           disabled={isSubmitting || !account}
