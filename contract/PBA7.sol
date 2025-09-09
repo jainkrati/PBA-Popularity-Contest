@@ -9,9 +9,11 @@ contract PBA7 {
 
     mapping(string=>uint) popularityMap;
     string[] names;
+    address admin;
 
     constructor(string[] memory initialStudents)
     {
+        admin = msg.sender;
         uint nameLength = initialStudents.length;
         names = initialStudents;
         for(uint i=0; i<nameLength; i++){
@@ -21,6 +23,7 @@ contract PBA7 {
     }
 
     function reset() public {
+        require(msg.sender == admin, "Only Admin");
         uint nameLength = names.length;
         for(uint i=0; i<nameLength; i++){
             string memory name = names[i];
