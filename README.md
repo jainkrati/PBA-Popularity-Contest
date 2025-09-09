@@ -1,44 +1,39 @@
-# Ethers.js DApp Example
+🚀 On-Chain Popularity Contest dApp
 
-This is a simple example Next.js application that demonstrates how to interact with the Storage smart contract on Passet Hub using the [ethers.js](https://docs.ethers.org/) library.
-
-For a complete walkthrough and detailed explanations on developing ethers.js dApps on Polkadot smart contracts, refer to the [Create a dApp with Ethers.js](https://papermoonio.github.io/polkadot-mkdocs/tutorials/smart-contracts/launch-your-first-project/create-dapp-ethers-js/) tutorial.
-
-## Features
-
-- Connect wallet using ethers.js providers
-- Read the current stored number from the contract
-- Store a new number to the contract
-- Display transaction status
-
-## Prerequisites
-
-- Node.js (>= 16.x)
-- npm or yarn
-- A Web3 wallet like MetaMask with Passet Hub network configured. Follow the [Connect to Polkadot Hub](https://papermoonio.github.io/polkadot-mkdocs/develop/smart-contracts/connect-to-polkadot/) guide for detailed setup instructions.
+This is a React-based decentralized application (dApp) that interacts with a Polkadot Passeo smart contract (https://blockscout-passet-hub.parity-testnet.parity.io/address/0xA824c4e9Ed3F35C934eE15Aa9088dc9546806e5f?tab=contract) to host and manage an on-chain popularity contest. Users can vote their favorite students and see results updated in real time — all powered by the Polkadot ecosystem.
 
 
-## Getting Started
+📌 Features
 
-### 1. Install dependencies
+🎭 On-chain Voting — Every vote is recorded transparently on Passeo.
 
-```bash
+📊 Live Contest Rankings — Contestant popularity is updated automatically.
+
+🔗 Seamless Wallet Integration — Connect using Polkadot.js wallet.
+
+⚡ Fast & Scalable UI — Built with React + Tailwind.
+
+🛡️ Secure & Verifiable — Votes are stored and verifiable on-chain.
+
+
+🏗️ Tech Stack
+
+Frontend: React + TailwindCSS
+
+Blockchain: Polkadot Passeo (Substrate-based parachain)
+
+Wallet Integration: polkadot.js extension
+
+Smart Contracts: ink! contracts deployed on Passeo
+
+
+🔧 Installation
+
+Install dependencies:
+
 npm install
-```
 
-### 2. Run the development server
 
-```bash
+Start the development server:
+
 npm run dev
-```
-
-### 3. Open the application
-
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
-
-## Usage
-
-1. Click the "Connect Wallet" button to connect your Web3 wallet
-2. The current stored number will be displayed automatically
-3. Enter a new number in the input field and click "Update" to update the value
-4. Transaction status will be displayed while the transaction is being processed
