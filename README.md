@@ -2,7 +2,7 @@
 
 This is a React-based decentralized application (dApp) that interacts with a Polkadot Passeo smart contract (https://blockscout-passet-hub.parity-testnet.parity.io/address/0xA824c4e9Ed3F35C934eE15Aa9088dc9546806e5f?tab=contract) to host and manage an on-chain popularity contest. Users can vote their favorite students and see results updated in real time — all powered by the Polkadot ecosystem.
 
-<img width="501" height="627" alt="Screenshot 2025-09-09 at 2 57 28 PM" src="https://github.com/user-attachments/assets/b3f3889b-4a18-4abc-a53b-ba36b450158f" />
+<img width="515" height="618" alt="Screenshot 2025-09-09 at 2 58 40 PM" src="https://github.com/user-attachments/assets/a1e44998-9a65-45ef-acb9-647464c78a88" />
 
 
 # 📌 Features
